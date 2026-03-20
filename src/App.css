@@ -18,8 +18,10 @@
 }
 
 .App-header {
-  background-image: url(../public/DashboardBackground.gif);
-  background-size: cover;
+  background-image: url(../public/fishyfishy.gif);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -61,7 +63,7 @@ th {
 }
 
 td {
-  background-color: rgba(211,211,211,.3);
+  background-color: rgba(228, 226, 226, 0.29);
   margin: 5px;
   padding: 5px;
   border-radius: 5px;
@@ -93,7 +95,6 @@ span {
 }
 
 .countdown {
-  background-color: rgba(211,211,211,.3);
   border-radius: 10px;
   font-size: 60px;
 }
@@ -106,7 +107,7 @@ span {
   left: 50%;
   top: 50%;
   z-index: 2;
-  background-image: url(../public/goldenstar.png);
+  background-image: url(../public/starfish.png);
   background-size: cover;
   opacity: 1;
   transition: opacity 3s;
@@ -119,10 +120,12 @@ span {
 .donationAlert h1 {
   position: relative;
   left: 50%;
-  top: 50%;
-  color:black;
+  top: 55%;
+  color: white;
   font-size: 180%;
   text-align: center;
   width: 35%;
   transform: translate(-50%, -50%);
+  font-family: 'Varela Round', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
