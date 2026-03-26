@@ -19,7 +19,7 @@ class Dashboard extends React.Component{
     }
 
     componentDidMount(){
-        //this.interval = setInterval(this.poll, this.state.delay);
+        this.interval = setInterval(this.poll, this.state.delay);
         this.poll();
     }
 
