@@ -1,26 +1,15 @@
 function Leaderboard(props) {
-    return <table>
-        <thead>
-            <tr>
-                <th colSpan={2}>
-                    {props.title}
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-        {props.leaders.map(l => {
-            return <tr>
-                <td>
-                    {l.name}
-                </td>
-                <td>
-                    {l.amount}
-                </td>
-            </tr>
-        })}
-        </tbody>
-    </table>
+    const top = props.leaders[0];
 
+    if (!top) return null;
+
+    return (
+        <div>
+            <h2>Team Leaderboard</h2>
+            <h3>🏆 {top.name}</h3>
+            <h4>${top.sumDonations.toFixed(2)}</h4>
+        </div>
+    );
 }
 
-export default Leaderboard
+export default Leaderboard;

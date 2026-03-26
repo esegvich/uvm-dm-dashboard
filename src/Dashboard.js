@@ -4,6 +4,9 @@ import Countdown from "react-countdown";
 import Leaderboard from "./Leaderboard";
 import RecentDonations from "./RecentDonations";
 
+const TEAM_IDS = [76006, 76948, 74891, 76817, 76819, 76795, 78285, 76291, 75730, 78253, 76821];
+
+
 class Dashboard extends React.Component{
     constructor(props){
         super(props);
@@ -20,11 +23,15 @@ class Dashboard extends React.Component{
 
     componentDidMount(){
         this.interval = setInterval(this.poll, this.state.delay);
+        this.teamInterval = setInterval(this.pollTeams, 30000);
         this.poll();
+        this.pollTeams();
+
     }
 
     componentWillUnmount(){
         clearInterval(this.interval);
+        clearInterval(this.teamInterval);
     }
 
     poll = () => {
@@ -41,6 +48,18 @@ class Dashboard extends React.Component{
                     }
                 });
             });
+    }
+
+    pollTeams = () => {
+        Promise.all(
+            TEAM_IDS.map(id =>
+                fetch(`https://events.dancemarathon.com/api/teams/${id}`)
+                    .then(r => r.json())
+            )
+        ).then(teams => {
+            const sorted = teams.sort((a, b) => b.sumDonations - a.sumDonations);
+            this.setState({ teamLeaders: sorted });
+        });
     }
 
     start(){
@@ -67,11 +86,11 @@ class Dashboard extends React.Component{
                 <span>🐙</span>
             </div>
         </Row>
-        {/* <Row>
+        {<Row>
             <div className="">
-                <Leaderboard title={"Test"} leaders={this.state.teamLeaders}/>
+                <Leaderboard title={"Team Leaderboard"} leaders={this.state.teamLeaders}/>
             </div>
-        </Row>*/}</>
+        </Row>}</>
     }
 }
 
