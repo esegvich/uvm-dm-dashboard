@@ -38,7 +38,7 @@ class Dashboard extends React.Component{
         const oldDonations = this.state.donations;
         this.setState({ pollingCount: this.state.pollingCount + 1 });
 
-        fetch('https://events.dancemarathon.com/api/events/rallython26/donations?limit=10')
+        fetch('https://events.dancemarathon.com/api/events/rallython26/donations?limit=5')
             .then(response => response.json())
             .then(data => {
                 const oldIDs = new Set(oldDonations.map(o => o.donationID));
