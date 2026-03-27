@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/uvm-dm-dashboard/static/css/main.838e8da4.css",
-    "main.js": "/uvm-dm-dashboard/static/js/main.9ae434e1.js",
+    "main.js": "/uvm-dm-dashboard/static/js/main.69d27e7b.js",
     "static/js/787.296f31cf.chunk.js": "/uvm-dm-dashboard/static/js/787.296f31cf.chunk.js",
     "static/media/fishyfishy.gif": "/uvm-dm-dashboard/static/media/fishyfishy.b058a081edc364373319.gif",
     "static/media/starfish.png": "/uvm-dm-dashboard/static/media/starfish.ff92c03512e3ebdc7214.png",
     "static/media/logo.svg": "/uvm-dm-dashboard/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/uvm-dm-dashboard/index.html",
     "main.838e8da4.css.map": "/uvm-dm-dashboard/static/css/main.838e8da4.css.map",
-    "main.9ae434e1.js.map": "/uvm-dm-dashboard/static/js/main.9ae434e1.js.map",
+    "main.69d27e7b.js.map": "/uvm-dm-dashboard/static/js/main.69d27e7b.js.map",
     "787.296f31cf.chunk.js.map": "/uvm-dm-dashboard/static/js/787.296f31cf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.838e8da4.css",
-    "static/js/main.9ae434e1.js"
+    "static/js/main.69d27e7b.js"
   ]
 }
