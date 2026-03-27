@@ -1,5 +1,5 @@
 function Leaderboard(props) {
-    const top = props.leaders[0];
+    const top = props.leaders[1];
 
     if (!top) return null;
 

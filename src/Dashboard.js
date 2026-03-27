@@ -35,14 +35,18 @@ class Dashboard extends React.Component{
     }
 
     poll = () => {
-        this.setState({pollingCount: this.state.pollingCount + 1, oldDonations: this.state.donations});
-        fetch('https://events.dancemarathon.com/api/events/rallython26/donations?limit=5')
+        const oldDonations = this.state.donations;
+        this.setState({ pollingCount: this.state.pollingCount + 1 });
+
+        fetch('https://events.dancemarathon.com/api/events/rallython26/donations?limit=10')
             .then(response => response.json())
             .then(data => {
-                this.setState({donations: data})
+                const oldIDs = new Set(oldDonations.map(o => o.donationID));
+                this.setState({ donations: data, oldDonations });
+
                 data.forEach(d => {
-                    if(!this.state.oldDonations.map(o => o.donationID).includes(d.donationID) && d.amount >= 50.0){
-                        this.setState({bigDonation: d});
+                    if (!oldIDs.has(d.donationID) && d.amount >= 50.0) {
+                        this.setState({ bigDonation: d });
                         document.getElementById('donationAlert').classList.remove("donationAlertHidden");
                         this.start();
                     }
@@ -82,7 +86,7 @@ class Dashboard extends React.Component{
             <div className="countdown">
                 <span>🐙</span>
                 <Countdown date={new Date("March 29, 2026 00:00:00")} daysInHours={true}/>
-                <span style={{padding: 0}}> until Rallython Reveal!</span>
+                <span style={{padding: 0}}> until RALLYTHON Reveal!</span>
                 <span>🐙</span>
             </div>
         </Row>
