@@ -36,8 +36,7 @@ class Dashboard extends React.Component {
         if (this.isPolling) return;
         this.isPolling = true;
 
-        fetch('https://events.dancemarathon.com/api/events/rallython26/donations?limit=5')
-            .then(response => response.json())
+        fetch(`https://events.dancemarathon.com/api/events/rallython26/donations?limit=5&_=${Date.now()}`)            .then(response => response.json())
             .then(data => {
                 this.setState(prevState => {
                     const oldIDs = new Set(prevState.donations.map(o => o.donationID));
