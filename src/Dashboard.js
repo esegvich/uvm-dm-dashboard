@@ -40,7 +40,7 @@ class Dashboard extends React.Component {
             .then(data => {
                 this.setState(prevState => {
                     const oldIDs = new Set(prevState.donations.map(o => o.donationID));
-                    const bigDonation = data.find(d => !oldIDs.has(d.donationID) && d.amount >= 50);
+                    const bigDonation = data.find(d => !oldIDs.has(d.donationID) && d.amount >= 1);
 
                     if (bigDonation) {
                         setTimeout(() => this.setState({showAlert: false}), 8000);
